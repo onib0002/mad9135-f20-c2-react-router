@@ -19,8 +19,8 @@ function App() {
             <Address />
           </Route>
           <Route path = "/users">
-            <Users />
-          </Route>
+            <Users /> 
+          </Route>   
           <Route path = "/404">
             <Not />
           </Route>

@@ -26,7 +26,7 @@ export default function Users(props){
   }
 
   useEffect(() =>{
-    // all useEffect fxns run on the initial render of the com ponet
+    // all useEffect fxns run on the initial render of the componet
     fetchData().then(data => {
 
       console.log('data from fetch', data);
@@ -38,11 +38,10 @@ export default function Users(props){
   return(
     <div className = "users">
       
-      {!users.length &&<p> There are no user yet</p>} 
+      {!users.length &&<p style={{ transitionDelay:"2s" }}> User page Loading! Please Wait...</p>} 
       
       {users && users.map((item, id) => (
         <>
-        {/*<p key = {item.name.last}>{item.name.first +'- '+ item.name.last + ' '+  item.picture.thumbnail +' ' + item.gender + '  ' + item.email }</p>*/}
         <div className="cards">
          <Profilecard item = {item} id ={id}/> 
       </div>  

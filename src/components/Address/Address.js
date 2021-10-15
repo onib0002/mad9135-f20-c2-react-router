@@ -3,7 +3,7 @@ import 'materialize-css/dist/css/materialize.min.css';
 import 'materialize-css/dist/js/materialize';
 import 'material-icons/iconfont/material-icons.css'
 import './address.css'
-
+import {NavLink} from "react-router-dom"
 export default function Users(props){
   const [users,  setUsers] = useState([]);
   const [Name,  setName] = useState([]);
@@ -13,11 +13,6 @@ export default function Users(props){
   //hooks return 2 things - variable , function to change the variable
   //usState- for creating abd updating variables inside the state
   //useEffect - for rendering lifecycle
-  // function addUsers(){
-  //   setUsers([...users])
-  //   setGender([...gender])
-  //   setEmail([...email])
-  // }
   
 
     
@@ -56,29 +51,26 @@ export default function Users(props){
   return(
     <div className = "address ">
       
-      {!users.length &&<p> There are no user yet</p>} 
+      {!users.length &&<p style={{ transitionDelay:"2s" }}>Users Addresss List loading Please wait...</p>} 
       <table className ="centered-responsive-table">
       <thead>
               <tr>
-                <th class="tg-0pky">First name</th>
+                <th class="tg-0lax">First name</th>
                 <th class="tg-0lax">Last name</th>
                 <th class="tg-0lax">Address</th>
-                <th class="tg-0lax">More</th>
+                <th class="tg-0lax">Action</th>
               </tr>
             </thead>
       
      
       {sortedName.map((item) => (
         <>
-        {/*<p key = {item.name.last}>{item.name.first +'- '+ item.name.last + ' '+  item.picture.thumbnail +' ' + item.gender + '  ' + item.email }</p>*/}
-        
-            
             <tbody>
-              <tr class = "stripefd">
+              <tr class = "striped">
                 <td class="tg-0lax">{item.name.first}</td>
                 <td class="tg-0lax">{item.name.last}</td>
                 <td class="tg-0lax">{item.location.street.number +' '+ item.location.street.name}</td>
-                <td class="tg-0lax"></td>
+                <NavLink to={{pathname: `/users/${props.id}:id`}}><td class="tg-0lax">See More Details</td></NavLink>
               </tr>
             </tbody>
             
