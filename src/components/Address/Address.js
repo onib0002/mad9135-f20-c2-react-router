@@ -5,7 +5,8 @@ import 'material-icons/iconfont/material-icons.css'
 import './address.css'
 import {NavLink} from "react-router-dom"
 export default function Users(props){
-  const [users,  setUsers] = useState([]);
+
+
   const [Name,  setName] = useState([]);
   const [Picture,  setPicture] = useState([]);
   const [Gender, setGender] = useState([])
@@ -15,29 +16,10 @@ export default function Users(props){
   //useEffect - for rendering lifecycle
   
 
-    
-  async function fetchData(){
-    let url = 'https://randomuser.me/api/?seed=onib0002&results=32&format=json&nat=au,ca,nz,gb,us';
-    let resp = await fetch(url)
-    let data = await resp.json()
+  let users = props.userList;
+console.log(props)
 
-    return data;
-
-    //setUsers(data.results);//new array being put into list
-    //changing a state variable tells react to look and see
-    //if something needs to be re-rendered
-  }
-
-  useEffect(() =>{
-    // all useEffect fxns run on the initial render of the com ponet
-    fetchData().then(data => {
-
-      console.log('data from fetch', data);
-
-      setUsers(data.results)
-    })
-  }, []);
-
+  console.log(users);
   let sortedName = users.sort((a, b)=> {
     if(a.name.last > b.name.last){
       return 1;
@@ -62,21 +44,21 @@ export default function Users(props){
               </tr>
             </thead>
       
-     
-      {sortedName.map((item) => (
-        <>
             <tbody>
+      {sortedName.map((item, id) => (
+        <>
               <tr class = "striped">
                 <td class="tg-0lax">{item.name.first}</td>
                 <td class="tg-0lax">{item.name.last}</td>
                 <td class="tg-0lax">{item.location.street.number +' '+ item.location.street.name}</td>
-                <NavLink to={{pathname: `/users/${props.id}:id`}}><td class="tg-0lax">See More Details</td></NavLink>
+                <NavLink to={{pathname: `/users/${id}`}}><td class="tg-0lax">See More Details</td></NavLink>
               </tr>
-            </tbody>
+      
             
 
       </>
       ))}
+      </tbody>
 </table>
 
     </div>
