@@ -17,7 +17,7 @@ export default function Users(props){
   
 
   let users = props.userList;
-console.log(props)
+  console.log(props)
 
   console.log(users);
   let sortedName = users.sort((a, b)=> {
@@ -35,27 +35,24 @@ console.log(props)
       
       {!users.length &&<p style={{ transitionDelay:"2s" }}>Users Addresss List loading Please wait...</p>} 
       <table className ="centered-responsive-table">
-      <thead>
-              <tr>
-                <th class="tg-0lax">First name</th>
-                <th class="tg-0lax">Last name</th>
-                <th class="tg-0lax">Address</th>
-                <th class="tg-0lax">Action</th>
-              </tr>
-            </thead>
+        <thead>
+          <tr>
+            <th class="tg-0lax">First name</th>
+            <th class="tg-0lax">Last name</th>
+            <th class="tg-0lax">Address</th>
+            <th class="tg-0lax">Action</th>
+          </tr>
+        </thead>
       
-            <tbody>
+      <tbody>
       {sortedName.map((item, id) => (
         <>
-              <tr class = "striped">
-                <td class="tg-0lax">{item.name.first}</td>
-                <td class="tg-0lax">{item.name.last}</td>
-                <td class="tg-0lax">{item.location.street.number +' '+ item.location.street.name}</td>
-                <NavLink to={{pathname: `/users/${id}`}}><td class="tg-0lax">See More Details</td></NavLink>
-              </tr>
-      
-            
-
+          <tr class = "striped">
+            <td class="tg-0lax">{item.name.first}</td>
+            <td class="tg-0lax">{item.name.last}</td>
+            <td class="tg-0lax">{item.location.street.number +' '+ item.location.street.name}</td>
+            <NavLink to={{pathname: `/users/${id}`}}><td class="tg-0lax">See More Details</td></NavLink>
+          </tr>
       </>
       ))}
       </tbody>

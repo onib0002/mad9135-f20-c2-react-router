@@ -8,9 +8,6 @@ export default function Navbar(props){
       <NavLink activeClassName = "active" to="/" exact>Home</NavLink>
       <NavLink activeClassName = "active" to="/users">Users List</NavLink>
       <NavLink activeClassName = "active" to="/address">Address List</NavLink>
-      <NavLink activeClassName = "active"to ="/users/:id"></NavLink>
-    </div>
-      
-    
+    </div> 
   );
 }

@@ -6,34 +6,12 @@ import './users.css'
 import Profilecard from './Profilecard.js'
 
 export default function Users(props){
-  const [users,  setUsers] = useState([]);
   const [Name,  setName] = useState([]);
   const [Picture,  setPicture] = useState([]);
   const [Email,  setEmail] = useState([])
   const [Phone, setPhone] = useState([])
   
-
-  async function fetchData(){
-    let url = 'https://randomuser.me/api/?seed=onib0002&results=32&format=json&nat=au,ca,nz,gb,us';
-    let resp = await fetch(url)
-    let data = await resp.json()
-
-    return data;
-
-    //setUsers(data.results);//new array being put into list
-    //changing a state variable tells react to look and see
-    //if something needs to be re-rendered
-  }
-
-  useEffect(() =>{
-    // all useEffect fxns run on the initial render of the componet
-    fetchData().then(data => {
-
-      console.log('data from fetch', data);
-
-      setUsers(data.results)
-    })
-  }, []);
+  let users = props.userList;
 
   return(
     <div className = "users">
@@ -43,7 +21,7 @@ export default function Users(props){
       {users && users.map((item, id) => (
         <>
         <div className="cards">
-         <Profilecard item = {item} id ={id}/> 
+          <Profilecard item = {item} id ={id}/> 
       </div>  
       </>
       ))}

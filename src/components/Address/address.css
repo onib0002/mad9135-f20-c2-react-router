@@ -29,4 +29,9 @@ thead .tg-0pky{
   border-right: 1px solid black;
   
 }
-
+tbody > tr:nth-child(2n) {
+  background-color: rgb(225, 255, 237);
+}
+tbody > tr:nth-child(2n+1) {
+  background-color: white;
+}

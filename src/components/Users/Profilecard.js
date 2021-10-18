@@ -5,15 +5,15 @@ export default function Profilecard(props){
 let item = props.item
 
   return(
-    //<div className="cards">
       <div className="card">
           <div className="card-image waves-effect waves-block waves-light">
               <img className = "activator" src={item.picture.large} alt = "user-Image" />
           </div>
           <div className="card-content">
               <span className="card-title activator green-text text-darken-4" >{item.name.first} {item.name.last}
-                  <NavLink to={{pathname: `/users/${props.id}`}}><i className="material-icons right" id="moreDetails"  >more_vert</i></NavLink></span>
-                    
+                  <NavLink to={{pathname: `/users/${props.id}`}}><i className="material-icons right" id="moreDetails"  >more_vert</i>
+                  </NavLink>
+              </span>
                 <p style={{ color: "blue" }}>{item.email}</p>
                 <p>{item.cell}</p>
           </div>

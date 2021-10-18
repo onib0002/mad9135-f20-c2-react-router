@@ -9,9 +9,7 @@ import UserCard from '../UserCard/UserCard'
 import{Switch, Route, Redirect } from 'react-router-dom';
 import {useState, useEffect} from 'react'
 function App() {
-
   //Moved fetch function here in order to have access to array of results
-
   const [userList, setUserList] = useState([]);
   async function fetchData(){
     let url = 'https://randomuser.me/api/?seed=onib0002&results=32&format=json&nat=au,ca,nz,gb,us';
